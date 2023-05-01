@@ -3,7 +3,6 @@ import { ContactsOutlined, HomeOutlined, ProfileOutlined} from '@ant-design/icon
 import { Menu } from 'antd';
 import logo from '../logo192.png'; // import your logo image
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
 const items = [
   {
     label: 'Home',
@@ -25,10 +24,8 @@ const items = [
   }
 ];
 
- 
-
 const BaseNavbar = () => {
-  const [current, setCurrent] = useState();
+  const [current, setCurrent] = useState('home');
   const onClick = (e) => {
     console.log('click ', e);
     setCurrent(e.key);

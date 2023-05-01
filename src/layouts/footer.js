@@ -5,7 +5,7 @@ const { Footer } = Layout;
 const MyFooter = () => {
   return (
     <Footer style={{ textAlign: 'center' }}>
-      My Awesome Footer ©2023 Created by Me
+      My Awesome Footer ©2023 Created by Ant Design
     </Footer>
   );
 };
