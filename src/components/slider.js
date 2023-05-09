@@ -60,12 +60,15 @@ const HomeSlider = () => (
   xl={{
     span: 12,
     offset: 0, 
-  }}>
+  }} 
+  style={{marginTop:'-16px'}}
+  >
     {
       contentStyle.map((item) => (
-      <div>
+      <>
         <h3 style={item}>{item.name}</h3>
-      </div>    
+      </>
+       
       ))
     }
   

@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from '../pages/home';
-import About from '../pages/about';
+import Sholat from '../pages/sholat';
 import Contact from '../pages/contact';
  
 function AppRouter() {
@@ -10,7 +10,7 @@ function AppRouter() {
     <Router>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path="/about" element={<About/>}/>
+        <Route path="/sholat" element={<Sholat/>}/>
         <Route path="/contact" element={<Contact/>}/>
       </Routes>
     </Router>

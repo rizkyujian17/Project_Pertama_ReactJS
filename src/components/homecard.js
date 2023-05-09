@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
 import { Row, Col } from 'antd';
 const { Meta } = Card;
 
@@ -31,8 +31,24 @@ const cardContent=[
 ];
 const HomeCard = () => (
     <div>
+        <Col xs={{
+            span: 16,
+            offset: 4,
+          }}
+          lg={{
+            span: 22,
+            offset: 1,
+          }}
+          style={{padding: '8px'}}
+          >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <h1 style={{ display: 'inline', margin: '0' }}><strong>Berita </strong></h1>
+          <Button type="primary" size="small" style={{ float: 'right' }}>Lebih Banyak</Button>
+        </div>
+          <hr></hr>
+        </Col>
         <Row justify="space-between">
-        
+       
         {cardContent.map((item) =>(
         <Col  xs={{
             span: 12,
@@ -48,8 +64,8 @@ const HomeCard = () => (
           }}
           style={{display:'flex'}}
          >
-
-            <Card
+            
+        <Card
             hoverable
             style={{
             width: 240,

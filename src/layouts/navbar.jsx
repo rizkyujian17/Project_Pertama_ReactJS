@@ -3,7 +3,7 @@ import { ContactsOutlined, HomeOutlined, ProfileOutlined} from '@ant-design/icon
 import { Menu } from 'antd';
 import logo from '../logo192.png'; // import your logo image
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+
 const items = [
   {
     label: 'Home',
@@ -12,10 +12,10 @@ const items = [
     href: '/'
   },
   {
-    label: 'About',
-    key: '/about',
+    label: 'Sholat',
+    key: '/sholat',
     icon: <ProfileOutlined />,
-    href: '/about'
+    href: '/sholat'
   },
   {
     label: 'Contact',
@@ -25,8 +25,6 @@ const items = [
   }
 ];
 
- 
-
 const BaseNavbar = () => {
   const [current, setCurrent] = useState();
   const onClick = (e) => {
@@ -35,17 +33,15 @@ const BaseNavbar = () => {
   };
   
   return (
-
-    <Menu onClick={onClick} selectedKeys={[current]}  mode="horizontal" style={{ backgroundColor: '#1f1f1f', color:'#fff' }} >
+    <Menu id="menu-1" onClick={onClick} selectedKeys={[current]}  mode="horizontal" style={{ backgroundColor: '#0d1321', color:'#fff', paddingBottom:'0px'  }}  responsive>
       <img src={logo} alt="Logo" style={{ width :'24px', padding:'12px'}}/>
       {items.map(item => (
-        <Menu.Item key={item.key} icon={item.icon} >
-         
-
+        <Menu.Item key={item.key} icon={item.icon} >   
           <a href={item.href}>{item.label}</a>
         </Menu.Item>
       ))}
     </Menu>
+
   );
 };
 
