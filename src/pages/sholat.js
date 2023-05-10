@@ -46,7 +46,7 @@ const JadwalSholat = () =>{
 
           //base id kota dan tanggal
           useEffect(() => {
-           
+            
             fetch(`https://api.banghasan.com/sholat/format/json/jadwal/kota/${idNamaKota}/tanggal/${tanggalSholat}`)//kota padang 580
               .then(response => response.json())
               .then(data => {
@@ -68,7 +68,7 @@ const JadwalSholat = () =>{
                         (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
                       }>
                       {namaKota.map((item) =>(
-                          <Option label={item.nama} value={item.id}>
+                          <Option key={item.id} label={item.nama} value={item.id}>
                           {item.nama}
                         </Option>
                       ))}

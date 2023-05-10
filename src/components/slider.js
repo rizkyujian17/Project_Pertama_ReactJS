@@ -3,16 +3,18 @@ import { Carousel } from 'antd';
 const contentStyle = [
 
   {
-  name : "photo 1",
-  height: '480px',
-  color: '#fff',
-  lineHeight: '480px',
-  textAlign: 'center',
-  background: '#364d79',
-  backgroundSize: 'cover',
-  backgroundImage: 'url("https://images.unsplash.com/photo-1682251167570-db70af09f7a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")',
+      id:'1',
+      name : "photo 1",
+      height: '480px',
+      color: '#fff',
+      lineHeight: '480px',
+      textAlign: 'center',
+      background: '#364d79',
+      backgroundSize: 'cover',
+      backgroundImage: 'url("https://images.unsplash.com/photo-1682251167570-db70af09f7a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80")',
   },
   {
+    id:'2',
     name : "photo 2",
     height: '480px',
     color: '#fff',
@@ -24,6 +26,7 @@ const contentStyle = [
   
   },
   {
+    id:'3',
     name : "photo 3",
     height: '480px',
     color: '#fff',
@@ -35,6 +38,7 @@ const contentStyle = [
   
   },
   {
+    id:'4',
     name : "photo 4",
     height: '480px',
     color: '#fff',
@@ -66,7 +70,7 @@ const HomeSlider = () => (
     {
       contentStyle.map((item) => (
       <>
-        <h3 style={item}>{item.name}</h3>
+        <h3 key={item.id} style={item}>{item.name}</h3>
       </>
        
       ))

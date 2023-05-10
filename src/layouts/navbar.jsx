@@ -1,10 +1,19 @@
 import React from 'react';
 import { ContactsOutlined, HomeOutlined, ProfileOutlined} from '@ant-design/icons';
-import { Menu } from 'antd';
+import { Layout, Menu } from 'antd';
 import logo from '../logo192.png'; // import your logo image
 import { useState } from 'react';
 
+const {Header}=Layout;
+
 const items = [
+  {
+    icon : <img src={logo} style={{     width: '16px',
+      marginTop: '4px',}}/>,
+    key : 'NavBrand',
+    href : '/',
+    label: 'React Belajar'
+  },
   {
     label: 'Home',
     key: 'home',
@@ -25,6 +34,8 @@ const items = [
   }
 ];
 
+
+
 const BaseNavbar = () => {
   const [current, setCurrent] = useState();
   const onClick = (e) => {
@@ -32,17 +43,28 @@ const BaseNavbar = () => {
     setCurrent(e.key);
   };
   
-  return (
-    <Menu id="menu-1" onClick={onClick} selectedKeys={[current]}  mode="horizontal" style={{ backgroundColor: '#0d1321', color:'#fff', paddingBottom:'0px'  }}  responsive>
-      <img src={logo} alt="Logo" style={{ width :'24px', padding:'12px'}}/>
-      {items.map(item => (
-        <Menu.Item key={item.key} icon={item.icon} >   
-          <a href={item.href}>{item.label}</a>
-        </Menu.Item>
-      ))}
-    </Menu>
+      return (
+        <Header style={{ backgroundColor: '#000', color:'#fff' }}>
+          
+          <Menu id="menu-1"  onClick={onClick} selectedKeys={[current]}  mode="horizontal" style={{ backgroundColor: '#000', color:'#fff' }}  responsive="true"  
+          
+          items={items.map(item =>(       
+            
+            { 
+           
+            key:  item.key,
+            icon : item.icon,
+            label : <a href={item.href}>{item.label}</a>,
+          }
+          
+        ))}>
+        
+    
+        </Menu>
+        </Header>
 
-  );
+      );
 };
 
 export default BaseNavbar;
+
