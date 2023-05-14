@@ -8,10 +8,9 @@ const {Header}=Layout;
 
 const items = [
   {
-    icon : <img src={logo} style={{     width: '16px',
-      marginTop: '4px',}}/>,
+    icon : <img src={logo} style={{ width: '16px', marginTop: '4px'}} alt="navbarBrand"/>,
     key : 'NavBrand',
-    href : '/',
+    href : '',
     label: 'React Belajar'
   },
   {
