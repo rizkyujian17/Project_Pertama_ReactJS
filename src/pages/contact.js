@@ -1,7 +1,9 @@
 import React from 'react';
 import {Button, Modal, Input, Form, Select} from 'antd';
 import { useState } from 'react';
-import { UserOutlined, ContactsOutlined, ManOutlined, WomanOutlined} from '@ant-design/icons';
+import { UserOutlined, ContactsOutlined} from '@ant-design/icons';
+import TableCard from '../components/tableContact';
+
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
 
@@ -76,8 +78,8 @@ const Contact = () => {
         <div style={containerStyle}>
             <h1>Daftar Contact</h1> 
             <ModalContact/>
-            
         </div>
+            <TableCard/>
         </>
     );
 }
