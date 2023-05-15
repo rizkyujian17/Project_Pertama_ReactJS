@@ -23,10 +23,12 @@ const JadwalSholat = () =>{
     const [namaKota,setKota]= useState([]); //ambil nama kota untuk select
     const [idNamaKota,setIdNamaKota]= useState({}); //ambil id kota
     const [namaKotaTerpilih,setKotaTerpilih]= useState(); //ambil nama kota untuk card
-
+    const [loading,setLoading]=useState(false);
     const namaKotaChange = (label,value) => {
+      
         setIdNamaKota(value.value)
         setKotaTerpilih(value.label)
+       
   };
 
     const onChange = (date, dateString) => {
@@ -46,11 +48,12 @@ const JadwalSholat = () =>{
 
           //base id kota dan tanggal
           useEffect(() => {
-            
+            setLoading(true);
             fetch(`https://api.banghasan.com/sholat/format/json/jadwal/kota/${idNamaKota}/tanggal/${tanggalSholat}`)//kota padang 580
               .then(response => response.json())
               .then(data => {
                 setJadwalSholat(data.jadwal.data);
+                setLoading(false);
               })
               .catch(error => {
                 console.error(error);
@@ -68,7 +71,7 @@ const JadwalSholat = () =>{
                         (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
                       }>
                       {namaKota.map((item) =>(
-                          <Option key={item.id} label={item.nama} value={item.id}>
+                          <Option key={item.id} label={item.nama} value={item.id} >
                           {item.nama}
                         </Option>
                       ))}
@@ -97,6 +100,7 @@ const JadwalSholat = () =>{
                       {{
                       containerContent
                       }}
+                      loading={loading}
                       cover={<img alt='judul' src='https://images.unsplash.com/photo-1570206913724-17f67ed3a6d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDF8fGlzbGFtfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=500&q=60' />}>
                         <h1 style={{textAlign : 'center'}}>Wilayah {namaKotaTerpilih}</h1><hr></hr>
                         <ul>

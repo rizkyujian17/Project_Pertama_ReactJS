@@ -1,39 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Button, Modal, Input, Form, Select} from 'antd';
 import { useState } from 'react';
 import { UserOutlined, ContactsOutlined} from '@ant-design/icons';
-import TableCard from '../components/tableContact';
-
+import TableContacts from '../components/tableContacts';
 import { LoadingOutlined } from '@ant-design/icons';
 import { Spin } from 'antd';
 
 const containerStyle = {
     position: 'relative',
-    height: 200,
-    padding: 48,
-    textAlign: 'center',
+    height: '200px',
+    padding: '48px',
+    textAlign: 'center'
 }
-const formItemLayout=
- {
-    paddingBottom: '4px',
-
-  }
-
+const antIcon = (
+  <LoadingOutlined
+    style={{
+      fontSize: 24,
+    }}
+    spin
+  />
+);
 const ModalContact = () => {
     const JenisKelamin = [
         {
-            kelamin : 'Laki-laki',
+            label : "Laki-Laki",
+            value : 'L',
         },
         {
-            kelamin : 'Perempuan',
+            label : "Perempuan",
+            value : 'P',
         }
     ];
-    const [isModalOpen, setIsModalOpen, setLoading] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [loading, setLoading] = useState(false);
     const showModal = () => {
-      setIsModalOpen(true);
-      
+        setLoading(true);// Mengatur loading menjadi true saat tombol diklik
+        setTimeout(() => {
+          setIsModalOpen(true); // Mengatur isModalOpen menjadi true setelah delay 2000 ms
+          setLoading(false); // Mengatur loading menjadi false setelah isModalOpen diatur menjadi true
+        }, 2000);
     };
     const handleOk = () => {
+      // useEffect(() => {
+      //   fetch()
+      // });
       setIsModalOpen(false);
     };
     const handleCancel = () => {
@@ -50,7 +60,7 @@ const ModalContact = () => {
 
     return (
         <>
-          <Button type="primary" onClick={showModal}>
+          <Button type="primary" onClick={showModal}loading={loading}>
             Tambah 
           </Button>
           <Modal title="Pendaftaran" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}  >
@@ -60,8 +70,8 @@ const ModalContact = () => {
                     style={InputStyle} 
                     onChange={handleChange}
                     options={JenisKelamin.map((j) => ({
-                    label:  j.kelamin,
-                    value:  j.kelamin,
+                    label:  j.label,
+                    value:  j.value,
                     }))} />
                 <Input placeholder="Masukkan Nomor Hp"  allowClear  prefix={<ContactsOutlined />} type="number" min={12} max={14} style={InputStyle} />
             </Form>
@@ -77,7 +87,12 @@ const Contact = () => {
         <>
         <div style={containerStyle}>
             <h1>Daftar Contact</h1> 
-            <ModalContact/>
+            <ModalContact/>     
+        </div>
+        <div   style={{
+          padding: '0 50px',
+        }}>
+           <TableContacts/>
         </div>
             <TableCard/>
         </>
