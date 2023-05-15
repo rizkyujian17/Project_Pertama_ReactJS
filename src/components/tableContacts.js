@@ -1,34 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Space, Table, Tag } from 'antd';
 
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-    render: (text) => <a>{text}</a>,
-  },
-  {
-    title: 'Jenis Kelamin',
-    dataIndex: 'j_kelamin',
-    key: 'j_kelamin',
-  },
-  {
-    title: 'Nomor Hp',
-    dataIndex: 'no_hp',
-    key: 'no_hp',
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: () => (
-      <Space size="middle">
-        <a>edit</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
-];
+
 
 
 
@@ -55,6 +28,41 @@ function TableContacts() {
             console.error(error);
           });
       }, []);
+
+      const handleEdit =(v) =>{
+       
+      }
+
+
+      const columns = [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name',
+          render: (text) => <a>{text}</a>,
+        },
+        {
+          title: 'Jenis Kelamin',
+          dataIndex: 'j_kelamin',
+          key: 'j_kelamin',
+        },
+        {
+          title: 'Nomor Hp',
+          dataIndex: 'no_hp',
+          key: 'no_hp',
+        },
+        {
+          title: 'Action',
+          key: 'action',
+          render: (v) => {
+            console.log(v)
+            return  <Space size="middle">
+            <a onClick={()=> handleEdit(v)}>edit</a>
+            <a>Delete</a>
+          </Space>
+          },
+        },
+      ];
   
 
         return (
