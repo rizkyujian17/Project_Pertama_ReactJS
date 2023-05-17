@@ -69,7 +69,7 @@ const ModalContact = () => {
   
     return (
             <>
-              <Button type="primary" onClick={showModal}loading={loading}>
+              <Button type="primary" onClick={showModal} loading={loading}>
                 Tambah 
               </Button>
               <Modal title="Pendaftaran" open={isModalOpen} onOk={HandleOk} onCancel={handleCancel}  loading={loading}>

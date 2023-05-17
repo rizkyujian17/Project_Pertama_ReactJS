@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import ModalContact from '../components/ModalContact';
 import TableContacts from '../components/tableContacts';
-
 const containerStyle = {
     position: 'relative',
     height: '200px',
