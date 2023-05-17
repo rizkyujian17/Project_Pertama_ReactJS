@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ModalContact from '../components/ModalContact';
 import TableContacts from '../components/tableContacts';
 import { Button } from 'antd';
@@ -19,12 +19,9 @@ const Contact = () => {
         else setOpenModal(v)
     }
     const handleEdit =(v) =>{
-        console.log(v);
         setForm(v)
         setIsOpenModal()
     } 
-  
-
     return (
         <>
         <div style={containerStyle}>
