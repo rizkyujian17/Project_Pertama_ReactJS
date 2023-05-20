@@ -15,15 +15,14 @@ const ModalContact = ({ isModalOpen, setIsModalOpen, formIni=null }) => {
     ];
 
     const [form, setForm] = useState({
-      key :'',
       name: '',
       j_kelamin: '',
       no_hp: '',
     });
     useEffect(() => {
       if (formIni !== null){
+      // console.log(formIni);
         setForm(formIni)
-        
       }
     },[formIni])
 
@@ -42,7 +41,6 @@ const ModalContact = ({ isModalOpen, setIsModalOpen, formIni=null }) => {
     }
     //handle when ok clicked
     const HandleOk = () => { 
-     
       if (form.key !== null){
         setIsModalOpen(false);
         setLoading(true);
@@ -70,34 +68,31 @@ const ModalContact = ({ isModalOpen, setIsModalOpen, formIni=null }) => {
             setLoading(false)
             setIsModalOpen(false);
       }
-      if (form.key === null){
-
-        setIsModalOpen(false);
-        setLoading(true);
-        fetch('http://127.0.0.1:8000/api/contacts', {
-          method: 'POST',
-          body: JSON.stringify({
-            name : form.name,
-            j_kelamin: form.j_kelamin,
-            no_hp : form.no_hp
-          }),
-          headers: {
-            'Content-type': 'application/json; charset=UTF-8',
-          },
-        })
-            .then(response => response.json())
-            .then(data => {
-              console.log(data);
-              setLoading(false);
-              setIsModalOpen(false);
-              // window.location.reload(true);
-            })
-            .catch(error => {
-              console.error(error);
-            });
-            setLoading(false)
+      setIsModalOpen(false);
+      setLoading(true);
+      fetch('http://127.0.0.1:8000/api/contacts', {
+        method: 'POST',
+        body: JSON.stringify({
+          name : form.name,
+          j_kelamin: form.j_kelamin,
+          no_hp : form.no_hp
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            setLoading(false);
             setIsModalOpen(false);
-      }
+            window.location.reload(true);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+          setLoading(false)
+          setIsModalOpen(false);
     }
 
  

@@ -28,9 +28,10 @@ const JadwalSholat = () =>{
       
         setIdNamaKota(value.value)
         setKotaTerpilih(value.label)
-       
+   
   };
 
+    
     const onChange = (date, dateString) => {
         setTanggalSholat(dateString);  
     }
@@ -57,6 +58,7 @@ const JadwalSholat = () =>{
               })
               .catch(error => {
                 console.error(error);
+                setLoading(false);
               });
           }, [idNamaKota,tanggalSholat]);
 
