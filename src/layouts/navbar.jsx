@@ -30,9 +30,29 @@ const items = [
     key: '/contact',
     icon: <ContactsOutlined />,
     href: '/contact'
+  },
+  {
+    label: 'Register',
+    key: '/register',
+    href: '/register'
+  },
+  {
+    label: 'Login',
+    key: '/login',
+    href: '/login'
   }
-];
 
+];
+// const sideNavbar =[  {
+//   label: 'Register',
+//   key: '/register',
+//   href: '/register'
+// },
+// {
+//   label: 'Login',
+//   key: '/login',
+//   href: '/login'
+// }]
 
 
 const BaseNavbar = () => {
@@ -45,7 +65,7 @@ const BaseNavbar = () => {
       return (
         <Header style={{ backgroundColor: '#000', color:'#fff' }}>
           
-          <Menu id="menu-1"  onClick={onClick} selectedKeys={[current]}  mode="horizontal" style={{ backgroundColor: '#000', color:'#fff' }}  responsive="true"  
+          <Menu id="menu-1"  onClick={onClick} selectedKeys={[current]}  mode="horizontal" style={{ backgroundColor: '#000', color:'#fff' }}  responsive="true" 
           
           items={items.map(item =>(       
             
@@ -57,7 +77,9 @@ const BaseNavbar = () => {
           }
           
         ))}>
-        
+          {/* <Menu.Item items={sideNavbar}>
+            
+          </Menu.Item> */}
     
         </Menu>
         </Header>

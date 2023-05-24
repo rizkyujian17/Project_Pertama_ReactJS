@@ -17,7 +17,7 @@ const ModalContact = ({ isModalOpen, setIsModalOpen, formIni=null }) => {
     const [form, setForm] = useState({
       key :'',
       name: '',
-      j_kelamin: '',
+      j_kelamin: 'Pilih Jenis Kelamin',
       no_hp: '',
     });
     useEffect(() => {
@@ -115,7 +115,7 @@ const ModalContact = ({ isModalOpen, setIsModalOpen, formIni=null }) => {
                     }}
                       value = {form.name}
                     />
-                    <Select placeholder="Jenis Kelamin"  allowClear   defaultValue='Jenis Kelamin' 
+                    <Select placeholder="Jenis Kelamin"  allowClear   defaultValue='Jenis Kelamin'
                         value = {form.j_kelamin}
                          onChange={value => {
                           setForm({
